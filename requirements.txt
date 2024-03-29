@@ -22,3 +22,4 @@ dnspython==1.16.0
 motor==3.4.0
 pre-commit==3.7.0
 isort==5.13.2
+black==24.3.0
