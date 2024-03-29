@@ -1,13 +1,16 @@
+from dotenv import load_dotenv
+
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from datasource.database import db
 from api.auxiliary import router as todo_router
 
 
+load_dotenv()
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    records_count = db.list_collection_names()
-    print(records_count)
+    db.list_collection_names()
     yield
 
 

@@ -1,8 +1,6 @@
 import os
 
 import certifi
-from pymongo import MongoClient
-from pymongo.server_api import ServerApi
 from dotenv import load_dotenv
 import motor.motor_asyncio
 
