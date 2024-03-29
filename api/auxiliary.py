@@ -2,7 +2,6 @@
 from typing import List
 
 from fastapi import APIRouter, Request
-from fastapi.encoders import jsonable_encoder
 
 from datasource.database import db
 from models.db_models import ToDoItem
