@@ -1,12 +1,14 @@
-from dotenv import load_dotenv
-
-from fastapi import FastAPI
+# Standard Library
 from contextlib import asynccontextmanager
-from datasource.database import db
-from api.auxiliary import router as todo_router
 
+from dotenv import load_dotenv
+from fastapi import FastAPI
+
+from api.auxiliary import router as todo_router
+from datasource.database import db
 
 load_dotenv()
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -14,10 +16,6 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(
-    lifespan=lifespan,
-    title='train',
-    version='0.0.1'
-)
+app = FastAPI(lifespan=lifespan, title="train", version="0.0.1")
 
 app.include_router(todo_router, tags=["todos"], prefix="/todos")
