@@ -1,4 +1,5 @@
 # Standard Library
+import logging
 from typing import List
 
 from fastapi import APIRouter, Request
@@ -7,6 +8,7 @@ from datasource.database import db
 from models.db_models import ToDoItem
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 
 @router.post("/insert", response_model=ToDoItem, status_code=201)
@@ -22,6 +24,7 @@ async def create_todo(request: Request, todo_item: ToDoItem):
 )
 async def list_todos(request: Request):
     cursor = [doc async for doc in db.test_coll.find()]
+    logger.info(f"Got list of all To-Do items with len: {len(cursor)}")
     return cursor
 
 
