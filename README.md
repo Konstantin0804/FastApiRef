@@ -7,6 +7,6 @@ For launching locally you need:
 4. Launch main.py
 
 OR you can launch it via Docker:
-1. docker compose up --build
+1. docker compose up --build -d
 
 That's it.

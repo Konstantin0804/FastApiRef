@@ -1,8 +1,13 @@
-version: '3'
+version: '3.12'
 
 services:
   web:
-    build: .
-    command: sh -c "uvicorn main:app --reload --port=8000 --host=0.0.0.0"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastapi-ref
+    command: sh -c "uvicorn main:app --reload --host 0.0.0.0 --port 8000"
+    volumes:
+      - .:/FastApiRef
     ports:
-      - 8000:8000
+      - "8000:8000"
